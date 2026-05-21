@@ -18,29 +18,27 @@ class MapsDetailsScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            FlutterMap(
-              options: const MapOptions(
-                  initialCenter: LatLng(51, -0.09), initialZoom: 13),
-              children: [
-                TileLayer(
-                  urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                  userAgentPackageName: 'com.android.application',
-                )
-              ],
+      body: Stack(
+        children: [
+          FlutterMap(
+            options: const MapOptions(
+                initialCenter: LatLng(51, -0.09), initialZoom: 13),
+            children: [
+              TileLayer(
+                urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                userAgentPackageName: 'com.android.application',
+              )
+            ],
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 50,
+            child: CarDetailsCard(
+              car: car,
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: CarDetailsCard(
-                car: car,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
