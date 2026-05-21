@@ -2,17 +2,11 @@ import 'package:car_rental_app/injection_container.dart';
 import 'package:car_rental_app/presentation/bloc/car_bloc.dart';
 import 'package:car_rental_app/presentation/bloc/car_event.dart';
 import 'package:car_rental_app/presentation/screens/onboarding_screen.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: "assets/.env");
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // initiali GetIt injection contianer
   init();
@@ -27,6 +21,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (_) => getIt<CarBloc>()..add(LoadCars()),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
