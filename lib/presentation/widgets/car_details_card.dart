@@ -9,7 +9,7 @@ class CarDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350,
+      height: 450,
       child: Stack(
         children: [
           Container(
@@ -74,7 +74,7 @@ class CarDetailsCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: 50,
             left: 0,
             right: 0,
             child: Container(
@@ -123,7 +123,6 @@ class CarDetailsCard extends StatelessWidget {
             ),
           ),
           Positioned(top: 50, right: 20, child: Image.asset(CImages.whiteCar))
-
         ],
       ),
     );

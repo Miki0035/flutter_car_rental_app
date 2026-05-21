@@ -33,7 +33,7 @@ class MapsDetailsScreen extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 50,
+            bottom: 0,
             child: CarDetailsCard(
               car: car,
             ),
